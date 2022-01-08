@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./app/css/global.css" />
+    <link rel="stylesheet" href="./app/css/home.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Rick and Morty</title>
+  </head>
+
+  <body ng-controller="charactersCtrl" id="body">
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">Rick and Morty</span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+
+      <div class="card mb-3 character__card" style="width: 100%; max-width: 600px" ng-repeat="character in characters">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img ng-src="{{character.image}}" style="width: 100%; height: 100%;" class="img-fluid rounded" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{character.name}}</h5>
+              <p class="card-text">
+                Status: {{ character.status }}
+              </p>
+              <p class="card-text"><small>Created: {{ character.created | date:'dd/MM/yyyy HH:mm' }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous" ng-click="previousPage(currentPage)">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">{{currentPage}}</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next" ng-click="nextPage(currentPage)">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </main>
+
+    <script src="./app/js/app.js"></script>
+    <script src="./app/js/controllers/characters.controller.js"></script>
+    <script src="./app/js/services/characters.service.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+body { 
+  background: var(--background-primary-color);
+}
+
+main {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.character__card {
+  margin-top: 1rem;
+  background-color: var(--card-primary-color);
+}
+
+.character__card h5, .character__card p {
+  color: #fff;
+}
